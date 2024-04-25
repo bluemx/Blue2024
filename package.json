@@ -1,0 +1,10 @@
+{
+    "name": "BlueMenu",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "browser-sync start --server --files \"**/*\""
+    },
+    "devDependencies": {
+        "browser-sync": "^2.29.3"
+    }
+}
