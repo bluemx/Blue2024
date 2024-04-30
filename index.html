@@ -17,10 +17,36 @@
     <importer src="components/header.html"></importer>
     <importer src="components/banner.html"></importer>
 
+  <!-- VIDEO-->
+  <!-- ##########################-->
+  <section id="descubre" style="margin-top: 10px;">
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col text-center">
+          <h2 data-l="DISCOVER THE POWER OF LOYALTY">DESCÚBRE EL PODER DE LA LEALTAD</h2>
+        </div>
+      </div>
+      <div class="row justify-content-center my-5">
+          <video
+          id="bluevideo"
+          class="video-js vjs-16-9"
+          controls
+          preload="auto"
+          width="853"
+          height="480"
+          poster="app/video/poster.png"
+          data-setup="{}"
+        >
+          <source src="app/video/blue-es.mp4" data-l-src=src="app/video/blue-en.mp4" type="video/mp4" />
+          <source src="app/video/blue-es.webm" data-l-src="app/video/blue-en.webm" type="video/webm" />
+          <p class="vjs-no-js">El navegador no soporta la reproducción de video.</p>
+        </video>
+      </div>
+    </div>
+  </section>
 
 
-
-    <section class="long"></section>
+    <!-- <section class="long"></section> -->
 
     <blue-footer></blue-footer>
     <script src="app/resources.js"></script>

@@ -7,7 +7,9 @@ const importsConfig = {
       "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css",
       "https://fonts.googleapis.com/css?family=Muli:400,700|Open+Sans+Condensed:700",
       "https://vjs.zencdn.net/8.0.4/video-js.css",
-      "app/css/style.css"
+      "app/css/style.css",
+      "app/css/estilos-blue.css"
+      
     ],
     js: [
       "https://code.jquery.com/jquery-3.7.1.min.js",
