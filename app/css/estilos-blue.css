@@ -682,7 +682,7 @@ header .pleca {
 }
 
 
-/*footer a{
+footer a{
   color: var(--colSec);
     padding-bottom: 20px;
 }
@@ -706,7 +706,7 @@ footer .socials a:hover{
 }
 .fa.fa-chevron-up:hover{
   color: var(--colMain);
-}*/
+}
 
 #clientes .jump{
   display: block;
