@@ -438,12 +438,8 @@ input.form-control, select.form-control, textarea.form-control{
 
 
 #contacto{
-  margin-top: -100px;
-  margin-bottom: 40px;
-  padding-top:25px;
-  padding-bottom: 10px;
   background: #e1e1e1;
-
+  margin-bottom: 0;
 }
 #contactoinf{
   margin-top: 0;

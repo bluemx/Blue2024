@@ -49,11 +49,23 @@ const bannerFN = () => {
 }
 
 
+function uneteBtn(){
+    $('#unete .btn-group .btn').click(function(){
+      setTimeout(()=>{
+        var val = $('#unete input:checked').val();
+        $('.joinbtn').attr('href', 'mailto:info@bluepureloyalty.com?subject=Estoy interesado en formar parte del área de '+val);
+        $('.joinbtn').show()
+        //gtag('event', 'click', {'event_category' : 'Click en botÃƒÂ³n', 'event_label': 'Unete al blue team mail'});
+      }, 250)
+    });
+  }
+
 const onStart = () => {
     languageFN()
     navbarFN()
     cookiesFN()
     bannerFN()
+    uneteBtn()
 
 
 }
@@ -81,8 +93,6 @@ loadImports().then(() => {
     console.log('File imports completed.');
     
     waitForVariables();
-    
-
     
 }).catch(error => {
     console.error('Error loading imports:', error);

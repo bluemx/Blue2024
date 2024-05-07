@@ -150,6 +150,15 @@ section.long{
 	color: #fff;
 }
 
+.blue-prefooter button{
+    background: none;
+    border: none;
+    color: inherit;
+}
+.blue-prefooter button:hover{
+    color: var(--colMain);
+}
+
 .footer-socials{
     background: #e1e1e1;
 }
@@ -168,4 +177,18 @@ section.long{
 
 body.internal-section{
     padding-top: 100px;
+}
+
+.uneteimg{
+    background-image: url(../images/footer/unete.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+#unete .btn-check:checked+.btn{
+    background: var(--colSec);
+    color: #fff;
+}
+.joinbtn{
+    display: none;
 }
