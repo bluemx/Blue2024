@@ -141,3 +141,31 @@ section.long{
 }
 
 
+.blue-prefooter {
+	background: var(--colSec);
+	color: #fff;
+	font-size: 0.7rem;
+}
+.blue-prefooter a {
+	color: #fff;
+}
+
+.footer-socials{
+    background: #e1e1e1;
+}
+
+.footer-socials a{
+	font-size: 2rem;
+	color: var(--colMain);
+}
+
+
+@media (max-width:1020px){
+    body.internal-section{
+        padding-top: 160px;
+    }
+}
+
+body.internal-section{
+    padding-top: 100px;
+}
