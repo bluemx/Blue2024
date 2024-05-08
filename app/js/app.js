@@ -2,17 +2,21 @@
 
 
 /*********************************************************************** */
+const navbarFNScrollPosition = (navbar) => {
+    if (window.scrollY > 100) {
+        navbar.classList.remove('navbar-dark');
+        navbar.classList.add('navbar-light');
+    } else {
+        navbar.classList.remove('navbar-light');
+        navbar.classList.add('navbar-dark');
+    }
+}
 const navbarFN = () => {
     const navbar = document.querySelector('.navbar');
+    navbarFNScrollPosition(navbar)
     if(window.location.pathname=='/' || window.location.pathname=='/index.html'){
         window.addEventListener('scroll', ()=> {
-                if (window.scrollY > 100) {
-                    navbar.classList.remove('navbar-dark');
-                    navbar.classList.add('navbar-light');
-                } else {
-                    navbar.classList.remove('navbar-light');
-                    navbar.classList.add('navbar-dark');
-                }
+                navbarFNScrollPosition(navbar)
             });
     } else {
         document.body.classList.add('internal-section')
@@ -20,6 +24,8 @@ const navbarFN = () => {
         navbar.classList.add('navbar-light');
     }
 }
+
+
 /*********************************************************************** */
 const languageFN = () => {
     setTimeout(()=>{
