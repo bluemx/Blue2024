@@ -2075,11 +2075,7 @@ width: 73%;
 .boxmkttechpleca{border-bottom: medium double #88B7E7; padding-bottom: 10px;}
 
 
-.video-js{
-    overflow: hidden;
-    border-radius: 2%;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
+
 
 .menu-fix ul li a{color:var(--colB);}
 

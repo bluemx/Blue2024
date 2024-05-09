@@ -6,7 +6,7 @@ const importsConfig = {
       "https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css",
       "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css",
       "https://fonts.googleapis.com/css?family=Muli:400,700|Open+Sans+Condensed:700",
-      "https://vjs.zencdn.net/8.0.4/video-js.css",
+      "https://cdn.plyr.io/3.7.8/plyr.css",
       "app/css/style.css",
       "app/css/estilos-blue.css"
       
@@ -15,10 +15,9 @@ const importsConfig = {
       "https://code.jquery.com/jquery-3.7.1.min.js",
       "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js",
       "https://cdn.jsdelivr.net/npm/@glidejs/glide",
-      "https://vjs.zencdn.net/8.0.4/video.min.js",
       "https://unpkg.com/microlang/MicroLang.min.js",
       "https://unpkg.com/@bluemx/blue-components",
-
+      "https://cdn.plyr.io/3.7.8/plyr.js",
       //"app/js/func.js",
       "app/js/importer.js",
       "app/js/app.js",

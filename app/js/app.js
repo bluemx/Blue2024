@@ -66,13 +66,19 @@ function uneteBtn(){
     });
   }
 
+
+const homeVideoFN = () => {
+    if(!document.getElementById('blueplayer')){ return false }
+    const player = new Plyr('#blueplayer');
+
+}
 const onStart = () => {
     languageFN()
     navbarFN()
     cookiesFN()
     bannerFN()
     uneteBtn()
-
+    homeVideoFN()
 
 }
 
