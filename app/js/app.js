@@ -1,3 +1,4 @@
+var gtag = function (){}
 
 
 
@@ -54,7 +55,30 @@ const bannerFN = () => {
     })
 }
 
+/*********************************************************************** */
 
+function statisticsAnimation () {
+    $.fn.isInViewport = function() {
+        var t = $(this).offset().top,
+            i = t + $(this).outerHeight(),
+            n = $(window).scrollTop(),
+            o = n + $(window).height();
+        return i > n && t < o
+    }, $(window).on("resize scroll", function() {
+        $(".contadorzx").each(function() {
+            if ($(this).isInViewport() && !$(this).attr("data-count")) {
+                $(this).attr("data-count", "true");
+                var t = $(this).attr("data-number"),
+                    i = 0,
+                    n = setInterval(() => {
+                        i < t ? (i++, $(this).html(i)) : ($(this).html(t), clearInterval(n))
+                    }, 10)
+            } else $(this).isInViewport() || $(this).removeAttr("data-count")
+        })
+    });
+}
+
+/******************************************************************** */
 function uneteBtn(){
     $('#unete .btn-group .btn').click(function(){
       setTimeout(()=>{
@@ -72,6 +96,51 @@ const homeVideoFN = () => {
     const player = new Plyr('#blueplayer');
 
 }
+
+function etapasFN() {
+    $('.etapas').click(function () {
+      $('.etapastxt').slideUp()
+      $($(this).attr('data-d')).slideDown()
+      gtag('event', 'click', {'event_category' : 'Click en botÃƒÂ³n', 'event_label': 'Etapas'});
+    })
+  }
+  function alcanceFN() {
+    $('.alcancebutton').click(function () {
+      $(this).siblings().removeClass('active')
+      $(this).addClass('active')
+      gtag('event', 'click', {'event_category' : 'Click en botÃƒÂ³n', 'event_label': 'Alcances'});
+    })
+  }
+
+function setActiveLink() {
+    var currentUrl = window.location.href.split('#')[0];
+    var links = document.querySelectorAll('a[href]');
+    links.forEach(function(link) {
+        if(link.getAttribute('class') == 'navbar-brand'){return false}
+        var href = link.getAttribute('href').replace(/^\//, '');
+        if (currentUrl.endsWith(href)) {
+            link.classList.add('active-link');
+        }
+    });
+}
+
+// Call the function when the page loads
+document.addEventListener('DOMContentLoaded', setActiveLink);
+
+
+function fadeOutAndRemove(elementId) {
+    var element = document.getElementById(elementId);
+    if (element) {
+        element.style.transition = 'opacity 0.5s ease';
+        element.style.opacity = '0';
+        setTimeout(() => element.parentNode.removeChild(element), 500);
+    } else {
+        console.error("Element with id '" + elementId + "' not found.");
+    }
+}
+
+
+
 const onStart = () => {
     languageFN()
     navbarFN()
@@ -79,7 +148,11 @@ const onStart = () => {
     bannerFN()
     uneteBtn()
     homeVideoFN()
-
+    statisticsAnimation()
+    etapasFN()
+    alcanceFN()
+    setActiveLink()
+    fadeOutAndRemove('transitioning');
 }
 
 
@@ -99,15 +172,23 @@ function waitForVariables() {
 
 
 
+function loadImportsRecursive() {
+    if (typeof loadImports === 'function') {
+        loadImports()
+            .then(() => {
+                // Code to execute after all imports are finished
+                console.log('File imports completed.');
+                waitForVariables();
+            })
+            .catch(error => {
+                console.error('Error loading imports:', error);
+                // Retry after a delay
+                setTimeout(loadImportsRecursive, 200);
+            });
+    } else {
+        // Retry after a delay
+        setTimeout(loadImportsRecursive, 200);
+    }
+}
 
-loadImports().then(() => {
-    // Code to execute after all imports are finished
-    console.log('File imports completed.');
-    
-    waitForVariables();
-    
-}).catch(error => {
-    console.error('Error loading imports:', error);
-});
-
-
+loadImportsRecursive();

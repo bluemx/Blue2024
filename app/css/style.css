@@ -200,3 +200,68 @@ body.internal-section{
 	border-radius: 6px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
+
+
+.contadorzx-head{
+	color: var(--colSec);
+	font-size: 4rem !important;
+	
+}
+.contadorzx-body{
+	color: var(--colMain);
+	line-height: 1;
+	
+}
+
+
+
+.active-link {
+    color: var(--colMain);
+    position: relative;
+}
+
+.active-link:after {
+    content: "";
+    display: block;
+    border-bottom: 2px solid var(--colMain);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    animation: subtleAnimation ease-in-out 10s infinite;
+}
+
+@keyframes subtleAnimation {
+    0%, 6%, 100% {
+        transform: scaleX(1);
+    }
+    3% {
+        transform: scaleX(0);
+    }
+}
+
+
+.carousel-control-prev,
+.carousel-control-next {
+	font-size: 2rem;
+	color: var(--colSec);
+}
+.carousel-control-prev:focus,
+.carousel-control-next:focus,
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+	color: var(--colMain);
+}
+
+
+#testimoniosCarr {
+	min-height: 600px;
+	padding: 10px;
+	display: flex;
+}
+#testimoniosCarr .carousel-inner {
+	min-height: 100%;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+}
