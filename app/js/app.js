@@ -15,7 +15,7 @@ const navbarFNScrollPosition = (navbar) => {
 const navbarFN = () => {
     const navbar = document.querySelector('.navbar');
     navbarFNScrollPosition(navbar)
-    if(window.location.pathname=='/' || window.location.pathname=='/index.html'){
+    if(window.location.pathname=='/' || window.location.pathname=='/index.html' || window.location.pathname=='/Blue2024/index.html'){
         window.addEventListener('scroll', ()=> {
                 navbarFNScrollPosition(navbar)
             });
