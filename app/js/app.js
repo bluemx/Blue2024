@@ -215,7 +215,6 @@ const onStart = () => {
     languageFN()
     navbarFN()
     cookiesFN()
-    bannerFN()
     uneteBtn()
     homeVideoFN()
     statisticsAnimation()
@@ -224,6 +223,7 @@ const onStart = () => {
     setActiveLink()
     fadeOutAndRemove('transitioning');
     updateCountry()
+    bannerFN()
 }
 
 
