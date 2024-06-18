@@ -185,9 +185,9 @@ const countryBTNFN = (country) => {
 const countryVisibilityFN = (country) => {
     document.querySelectorAll('.visible-usa, .visible-mx').forEach(element => {
         if (country === 'usa' && element.classList.contains('visible-usa')) {
-            element.style.display = 'block';
+            //element.style.display = 'block';
         } else if (country === 'mx' && element.classList.contains('visible-mx')) {
-            element.style.display = 'block';
+            //element.style.display = 'block';
         } else {
             element.style.display = 'none';
             if (element.classList.contains('glide__slide')) {
