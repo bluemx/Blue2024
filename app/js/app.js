@@ -173,11 +173,15 @@ const countryBTNFN = (country) => {
             localStorage.setItem(localStorageKey, clickedCountry);
             window.history.pushState(null, null, `#${clickedCountry}`);
             // Fade out the body and then update the country
-            document.body.classList.add('fade-out');
+            //document.body.classList.add('fade-out');
+            /*
             setTimeout(() => {
                 updateCountry();
                 document.body.classList.remove('fade-out');
             }, 500); // The timeout should match the CSS transition duration
+        *\
+            location.reload()
+        
         });
     });
 };
