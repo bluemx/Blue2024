@@ -19,7 +19,7 @@ body {
 .navbar {
     width: 100%;
     z-index: 1000;
-    backdrop-filter: blur(10px);
+    //backdrop-filter: blur(10px);
     transition: all 1s ease;
 }
 
@@ -264,4 +264,13 @@ body.internal-section{
 	padding: 10px;
 	display: flex;
 	align-items: center;
+}
+
+
+body {
+    transition: opacity 0.5s ease-in-out;
+}
+
+body.fade-out {
+    opacity: 0;
 }

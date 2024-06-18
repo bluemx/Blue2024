@@ -730,7 +730,7 @@ img, .pleca, header{
   animation: .6s ease-out 0s 1 initOther;
 }
 
-[data-l], p, a{
+[data-en], p, a{
   animation: 1s ease-out 0s 1 initTxt;
 }
 
