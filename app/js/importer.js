@@ -2,7 +2,7 @@ function loadImports() {
     return new Promise((resolve, reject) => {
         const importers = document.querySelectorAll('importer');
         const promises = [];
-        
+
         function loadNestedImports(element) {
             const nestedImporters = element.querySelectorAll('importer');
             nestedImporters.forEach(nestedImporter => {
@@ -13,11 +13,24 @@ function loadImports() {
                             .then(response => response.text())
                             .then(nestedHtml => {
                                 nestedImporter.innerHTML = nestedHtml;
+                                executeScripts(nestedImporter);
                                 loadNestedImports(nestedImporter);
                             })
                             .catch(error => console.error(`Error loading component from ${nestedSrc}:`, error))
                     );
                 }
+            });
+        }
+
+        function executeScripts(element) {
+            const scripts = element.querySelectorAll('script');
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement('script');
+                newScript.textContent = oldScript.textContent;
+                Array.from(oldScript.attributes).forEach(attr => {
+                    newScript.setAttribute(attr.name, attr.value);
+                });
+                oldScript.replaceWith(newScript);
             });
         }
 
@@ -29,6 +42,7 @@ function loadImports() {
                         .then(response => response.text())
                         .then(html => {
                             importer.innerHTML = html;
+                            executeScripts(importer);
                             loadNestedImports(importer);
                         })
                         .catch(error => console.error(`Error loading component from ${src}:`, error))

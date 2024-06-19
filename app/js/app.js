@@ -207,15 +207,48 @@ const updateCountry = () => {
     countryVisibilityFN(country);
 };
 
+function shorten(str, no_words) {
+    return str.split(" ").splice(0,no_words).join(" ");
+  }
+  function stripHTML(htmlString) {
+    var stripedHtml = $("<div>").html(htmlString).text();
+    return stripedHtml
+  }
 
 
-
-
+const newsLoadFN = () => {
+    var baseUrl = "https://bluepureloyalty.com/";
+    var post = baseUrl+'noticias/wp-json/wp/v2/posts?per_page=1&_embed'
+    
+    if($('#noticias').length>0) {
+        $.get(post, function(data) {
+            var rs = data[0]
+            var estitle = rs.title.rendered
+            var estext = rs.excerpt.rendered
+            var entitle = rs.acf.mxen_titulo
+            var entext = '<p>'+shorten(stripHTML(rs.acf.mxen_texto),55)+'[...]</p>'
+            var image = rs._embedded['wp:featuredmedia'][0].source_url
+            var mxen_img = rs.acf.mxen_img
+            var usaes_img = rs.acf.usaes_img
+            var usaen_img = rs.acf.usaen_img
+            var link = baseUrl+'noticias/'+rs.slug
+            $('.latestNew h4').text(estitle)
+            $('.latestNew h4').attr('data-en', entitle)
+            $('.latestNew .lnewtxt').html(estext)
+            $('.latestNew .lnewtxt').attr('data-en', entext)
+            $('.latestNew img').attr('src', image)
+            $('.latestNew img').attr('data-lang-attr', 'src')
+            $('.latestNew img').attr('data-en', mxen_img)
+            $('.loadingnews').hide()
+            languageFN()
+        })
+    }
+}
 
 
 
 const onStart = () => {
-    languageFN()
+    
     navbarFN()
     cookiesFN()
     uneteBtn()
@@ -227,6 +260,10 @@ const onStart = () => {
     fadeOutAndRemove('transitioning');
     updateCountry()
     bannerFN()
+    newsLoadFN()
+    if($('#noticias').length==0) {
+        languageFN()
+    }
 }
 
 
@@ -266,3 +303,6 @@ function loadImportsRecursive() {
 }
 
 loadImportsRecursive();
+
+
+
