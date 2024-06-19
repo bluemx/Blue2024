@@ -205,7 +205,6 @@ const updateCountry = () => {
     const country = countryFN();
     countryBTNFN(country);
     countryVisibilityFN(country);
-    bannerFN()
 };
 
 
