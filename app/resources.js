@@ -21,8 +21,6 @@ const importsConfig = {
       "app/js/importer.js",
       "app/js/app.js",
       "app/js/form.js",
-
-
     ]
   };
   
