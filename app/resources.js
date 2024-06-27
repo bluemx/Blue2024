@@ -21,7 +21,7 @@ const importsConfig = {
       //"app/js/func.js",
       "app/js/importer.js",
       "app/js/app.js",
-      "app/js/form.js",
+      //"app/js/form.js",
 
 
     ]
