@@ -18,10 +18,9 @@ const importsConfig = {
       "https://unpkg.com/microlang/MicroLang.min.js",
       "https://unpkg.com/@bluemx/blue-components",
       "https://cdn.plyr.io/3.7.8/plyr.js",
-      //"app/js/func.js",
       "app/js/importer.js",
       "app/js/app.js",
-      //"app/js/form.js",
+      "app/js/form.js",
 
 
     ]
@@ -39,28 +38,31 @@ const importsConfig = {
     });
   }
   
-  // Function to dynamically import JavaScript files
-  function importJS(url) {
-    return new Promise((resolve, reject) => {
-      const script = document.createElement("script");
-      script.src = url;
-      script.onload = resolve;
-      script.onerror = reject;
-      document.body.appendChild(script);
-    });
-  }
-  
-  // Import all CSS files
-  Promise.all(importsConfig.css.map(importCSS))
-    .then(() => {
-      // All CSS files are loaded, proceed to load JS files
-      return Promise.all(importsConfig.js.map(importJS));
-    })
-    .then(() => {
-      // All JS files are loaded
-      console.log("All resources loaded successfully.");
-    })
-    .catch((error) => {
-      console.error("Error loading resources:", error);
-    });
-  
+// Function to dynamically import JavaScript files with sequential loading
+function importJS(url) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = url;
+    script.onload = resolve;
+    script.onerror = reject;
+
+    // Append the script to the document body
+    document.body.appendChild(script);
+  });
+}
+
+// Import all CSS files
+Promise.all(importsConfig.css.map(importCSS))
+  .then(() => {
+    // All CSS files are loaded, proceed to load JS files sequentially
+    return importsConfig.js.reduce((chain, url) => {
+      return chain.then(() => importJS(url));
+    }, Promise.resolve());
+  })
+  .then(() => {
+    // All JS files are loaded
+    console.log("All resources loaded successfully.");
+  })
+  .catch((error) => {
+    console.error("Error loading resources:", error);
+  });
