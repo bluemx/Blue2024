@@ -1,4 +1,4 @@
-//setTimeout(() => {
+setTimeout(() => {
   var _0x77e5 = ['use strict', 'load', 'val', '#HfLanguage', 'preventDefault', 'hide', '#PopupServices', 'click', '.ClosePopupServices', 'show', '#DdlService', 'length', "input[name='ChkBxLstServices']:checked", 'es', 'Seleccione', 'html', 'Select', 'was-validated', 'hasClass', '#ContactForm', '.invalid-feedback', 'next', 'is-valid-select', 'removeClass', 'is-invalid-select', 'addClass', 'data-service', 'attr', 'data-service-l', ' servicios seleccionados', ' services selected', "input[name='ChkBxLstServices']", 'needs-validation', 'getElementsByClassName', 'submit', 'disabled', 'prop', '#BtnSubmit', 'checkValidity', 'stopPropagation', ':checked', 'is', '#ChkBxTerms', 'find', 'div', 'parent', 'value', 'push', 'each', 'eyjhbgcioijiuzi1niisinr5cci6ikpxvcj9.eyjuyw1lijoiz…sesj9.3hwn-cejlo_uqabbf4j5bhbwjhgev-iwvmx-rgl0wpc', '#TbxName', '#TbxCompany', '#TbxEmail', '#TbxPhone', '#HfCountry', '#TbxComments', 'stringify', 'https://www.blueux.mx/contactapi/api/Contacts', 'application/json; charset=utf-8', 'json', 'post', 'ResultID', '', "<div class='mppm-popup-item-icon'><img src='", 'data-image', "' /></div><div class='mppm-popup-item-text'>", '</div>', "Gracias por tu interés por descubrir el poder de la lealtad con <div class='mppm-popup-item'>", '</div> Nos pondremos en contacto contigo lo antes posible', "Thank you for your interest to discover the power of loyalty with <div class='mppm-popup-item'>", '</div> We will contact you as soon as possible', '#popup_message', '#PopupMessage', 'checked', '0', 'input[name=ChkBxTerms]', 'on', '.ClosePopupMessage', 'Description', 'Hubo un error al envíar el formulario, favor de revisar su conexión a internet', 'There was an error sending the form, please check your internet connection', "<img src='https://bluepureloyalty.com/app/images/mail/001-warning.png' /><div>", 'ajax', 'add', 'classList', 'addEventListener', 'call', 'filter', 'prototype', 'ChkBxTerms', 'getElementById'];
 
 
@@ -237,4 +237,4 @@
     );
   })();
   console.log("form loaded");
-//}, 1000);
+}, 1000);
