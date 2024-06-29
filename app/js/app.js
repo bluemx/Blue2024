@@ -103,11 +103,45 @@ function uneteBtn(){
   }
 
 
-const homeVideoFN = () => {
-    if(!document.getElementById('blueplayer')){ return false }
-    const player = new Plyr('#blueplayer');
 
+// Function to handle changes in localStorage
+function homeVideoLang(player) {
+    console.log('changing')
+    player.source = {
+        type: 'video', title: 'Blue',
+        sources: [
+            {
+                src: 'app/video/blue-'+localStorage.getItem('microlang-lang')+'.mp4',
+            }
+        ],
+        poster: 'app/video/poster.png'
+    }
 }
+
+
+const homeVideoFN = () => {
+    let theplayer = document.getElementById('blueplayer')
+    if(!theplayer){ return false }
+    let player = new Plyr('#blueplayer');
+    setInterval(()=>{
+        const videolang = player.source.substring(player.source.indexOf('-') + 1, player.source.lastIndexOf('.mp4'));
+        const thelang = localStorage.getItem('microlang-lang')
+        if(videolang !== thelang){
+            homeVideoLang(player)
+        }
+    }, 3000)
+}
+
+
+function handleStorageChange(event) {
+    if (event.key === 'microlang-lang') {
+        console.log('localStorage item "microlang-lang" has changed:', localStorage.getItem('microlang-lang'));
+        // Perform any other actions here based on the change
+    }
+}
+
+// Add event listener for storage changes
+window.addEventListener('storage', handleStorageChange);
 
 function etapasFN() {
     $('.etapas').click(function () {
