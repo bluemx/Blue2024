@@ -221,6 +221,7 @@ const countryBTNFN = (country) => {
 };
 
 const countryVisibilityFN = (country) => {
+    document.body.setAttribute('data-country', country)
     document.querySelectorAll('.visible-usa, .visible-mx').forEach(element => {
         if (country === 'usa' && element.classList.contains('visible-usa')) {
             //element.style.display = 'block';

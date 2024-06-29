@@ -291,3 +291,7 @@ body {
 body.fade-out {
     opacity: 0;
 }
+
+
+body[data-country='mx'] .visible-usa{display: none;}
+body[data-country='usa'] .visible-mx{display: none;}
